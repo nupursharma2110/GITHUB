@@ -29,31 +29,24 @@ public class AppTest
 	}
 
 
-	@Test
+	@Test(priority=1)
 	public void proceed() throws IOException, InterruptedException{
+		
 		System.out.println("into proceed");
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		App h1 = new App(driver);
 		System.out.println(driver.getTitle());
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-
-
-
-
 		Assert.assertEquals(driver.getTitle(), "How people build software · GitHub");
 		h1.account();
 
 		home2 h2 = new home2(driver);
 		System.out.println(driver.getTitle());
-
-		Assert.assertEquals(driver.getTitle(), "Sign in to GitHub · GitHub");
+        	Assert.assertEquals(driver.getTitle(), "Sign in to GitHub · GitHub");
 		h2.signin();
-
-
-
-		home_3 h3 = new home_3(driver);
+		
+                home_3 h3 = new home_3(driver);
 		System.out.println(driver.getTitle());
-
 		Assert.assertEquals(driver.getTitle(),"GitHub");
 		h3.start();
 
@@ -62,18 +55,26 @@ public class AppTest
 		Assert.assertEquals(driver.getTitle(),"Create a New Repository");
 		h4.start();
 		
+	}
+		
+		
+		
+	        @Test(priority=2)
+	        public void authenticatepush() throws IOException, InterruptedException
+	        {
 		shell clone = new shell(driver);
 		List<String> commit;
 		commit= clone.push();
 		Thread.sleep(2000);
 		clone.refresh_browser();
 		Assert.assertTrue(commit.get(1).contains("On branch master"));	
+	        }
 
 			
 		
 
 	}
-}
+
 
 
     
