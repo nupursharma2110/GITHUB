@@ -29,12 +29,12 @@ public class home2 {
 		private WebElement pass;
 
 		
-	    @FindBy(name="commit")
+	       @FindBy(name="commit")
 		private WebElement sign;
 	    
-	    String line = null;
+	        String line = null;
 	    
-	    File file = new File("/home/nupursharma/Desktop/op.csv");
+	        File file = new File("/home/nupursharma/Desktop/op.csv");
 	    
 
 
@@ -44,13 +44,13 @@ public class home2 {
 			PageFactory.initElements(driver, this);
 
 		}
-        data obj=new data();
+                data obj=new data();
 
 
 		public void signin() throws IOException
 		{   
-		    String var_1=(String)obj.fetchData("username");
-		    String var_3=(String)obj.fetchData("password");
+		   String var_1=(String)obj.fetchData("username");
+		   String var_3=(String)obj.fetchData("password");
 		    login.click();
 			login.sendKeys(var_1);
 			
